@@ -1,23 +1,39 @@
 #title {
   text-align: center;
+  color: gray;
 }
 
 .row {
+	margin: auto;
   float: left;
 }
 
 .unit {
-  height: 10px;
-  width: 10px;
+  height: 20px;
+  width: 20px;
+  margin: auto;
   background-color: white;
 }
 
 #canvas {
-  width: 160px;
-  margin: 0, auto;
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  padding: auto;
+  border-width: 3px;
+  border-style: double;
+  border-color: black;
 }
 
 #button-bar {
   text-align: center;
   margin-bottom: 20px;
+}
+
+#options-list{
+	display: none;
+}
+
+body {
+	background-color: lightgray;
 }
