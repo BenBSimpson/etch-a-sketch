@@ -2,6 +2,7 @@ var canvasWidth = 16;
 var canvasHeight = 16;
 var $options = $("#options-button");
 var $reset = $("#reset-button");
+var color = "black";
 
 //buildCanvas function creates a grid on pageload as well as when appropriate buttons are clicked.
 var buildCanvas = function() {
@@ -15,22 +16,42 @@ var buildCanvas = function() {
   $('.unit').css('width', 600 / canvasWidth);
 };
 
-var colorUnit = function() {
+//colorUnit function
+var colorUnit = function(currentColor) {
   $('.unit').on("mouseover", function() {
-    $(this).css("background-color", "black");
+    $(this).css("background-color", currentColor);
   });
 };
 
 $(document).ready(function() {
   buildCanvas();
-  colorUnit();
-  $('#reset-button').on('click', function() {
-  	canvasHeight = prompt('Please enter a canvas size', 'Size');
-  	canvasWidth = canvasHeight;
-  	$('.unit').remove();
-  	$('.row').remove();
-  	buildCanvas();
-  	colorUnit();
+  colorUnit("black");
+
+  $('#reset-button').on('click', function () {
+  	input = prompt('If you would like to change your brush size, please enter a number between 1-100. Otherwise, click "OK" to clear your canvas.', 100 - canvasHeight);
+    if (input == null) {
+      return;
+    }
+    else {
+      canvasHeight = 101 - input;
+    	canvasWidth = canvasHeight;
+    	$('.unit').remove();
+    	$('.row').remove();
+    	buildCanvas();
+    	colorUnit("black");
+    }
   });
 
+  $('#color-swap-button').on('click', function () {
+    if (color == "black") {
+    $('#current-color').css("background-color", "white");
+    colorUnit("white");
+    color = "white";
+    }
+    else {
+    $('#current-color').css("background-color", "black");
+    colorUnit("black");
+    color = "black";
+    }
+  });  
 });
