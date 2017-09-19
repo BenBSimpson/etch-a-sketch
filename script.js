@@ -28,7 +28,7 @@ $(document).ready(function() {
   colorUnit("black");
 
   $('#reset-button').on('click', function () {
-  	input = prompt('If you would like to change your brush size, please enter a number between 1-100. Otherwise, click "OK" to clear your canvas.', 100 - canvasHeight);
+  	input = prompt('If you would like to change your brush size, please enter a number between 1-100. Otherwise, click "OK" to clear your canvas.', 101 - canvasHeight);
     if (input == null) {
       return;
     }
