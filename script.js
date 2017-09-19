@@ -32,6 +32,10 @@ $(document).ready(function() {
     if (input == null) {
       return;
     }
+    else if (isNaN(input) == true || input < 1 || input > 100) {
+      alert("You did not enter a number between 1 and 100. Please try again.");
+      return;
+    }
     else {
       canvasHeight = 101 - input;
     	canvasWidth = canvasHeight;
